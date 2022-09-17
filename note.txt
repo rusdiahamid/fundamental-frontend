@@ -1,0 +1,17 @@
+kelebihan web component dibandingkan komponen yang dibuat menggunakan framework?
+
+Standard : Web Component merupakan standar yang ditetapkan oleh W3C dalam membuat komponen yang reusable.
+Compatibility : Dikarenakan web component merupakan standard maka dapat digunakan pada framework seperti Angular, React, ataupun Vue.
+Simple : Penggunaan web component tidak memerlukan konfigurasi khusus layaknya framework yang ada. Hal tersebut dikarenakan web component dibangun tak lain hanya menggunakan JS/CSS/HTML murni.
+
+Terdapat dua API penting dalam menerapkan web component, yakni:
+
+Custom Elements: Digunakan untuk membuat elemen baru (custom element). Kita juga bisa menentukan perilaku element tersebut sesuai kebutuhan.
+Shadow DOM: Digunakan untuk membuat HTML element terenkapsulasi dari gangguan luar. Biasanya digunakan pada custom element, agar elemen tersebut tidak terpengaruh oleh styling yang ditetapkan di luar dari custom elemen-nya.
+
+Ketika sebuah JavaScript class mewarisi sifat dari HTMLElement maka class tersebut akan memiliki siklus hidup layaknya sebuah elemen HTML. Kita dapat menerapkan logika pada setiap siklus hidup yang ada dengan memanfaatkan lifecycle callbacks yang ada. Berikut ini lifecycle callbacks yang ada pada HTMLElement:
+
+connectedCallback(): Akan terpanggil setiap kali elemen berhasil ditambahkan ke dokumen HTML (DOM). Callback ini merupakan tempat yang tepat untuk menjalankan konfigurasi awal seperti mendapatkan data, atau mengatur attribute.
+disconnectedCallback(): Akan terpanggil setiap kali elemen dikeluarkan (remove()) dari DOM. Callback ini merupakan tempat yang tepat untuk membersihkan data yang masih disimpan pada elemen. Bisa itu event, state, ataupun objek. 
+attributeChangedCallback(): Akan terpanggil setiap kali nilai atribut yang di-observe melalui fungsi static get observedAttributes diubah. Callback ini bisa kita manfaatkan untuk memuat ulang data yang ditampilkan oleh elemen.
+adoptedCallback(): Akan terpanggil setiap kali elemen dipindahkan pada dokumen baru. Kita relatif jarang menggunakan callback ini, namun jika kita memanfaatkan tag <iframe> maka callback ini akan terpanggil.
